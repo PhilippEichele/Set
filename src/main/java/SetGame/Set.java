@@ -1,37 +1,22 @@
 package SetGame;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 import java.util.*;
 import java.util.stream.Stream;
 
-public class Set extends Application {
+public class Set{
     static ArrayList<Card> cardsOnTable;
     static Deck deck;
     static Scanner s;
     public static void main(String[] args){
         deck = new Deck();
+        GUI gui = new GUI();
         s = new Scanner(System.in);
         deck.shuffle();
         cardsOnTable = deck.draw(12);
 
-        launch(args);
-        gameloop();
+        gui.startGame(args);
+        //gameloop();
     }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Set.class.getResource("SetView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-
-        stage.show();
-    }
-
     public static void gameloop(){
         while(deck.decksize() > 0 || cardsOnTable.size() > 0){
             System.out.println("Cards left in deck: "+deck.decksize());
