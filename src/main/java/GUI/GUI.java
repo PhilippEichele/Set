@@ -4,6 +4,7 @@ import SetGame.Set;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -19,18 +20,22 @@ public class GUI extends Application {
 
     public static void startGame(){
         stage.setScene(game);
-        stage.setFullScreen(true);
     }
 
     @Override
     public void start(Stage stageIn) throws Exception {
-        stage = stageIn;
-        String HOME_SCREEN = "/fxml/StartScreen.fxml";
-        home = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(HOME_SCREEN))));
-        String GAME_SCREEN = "/fxml/GameView.fxml";
-        game = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(GAME_SCREEN))));
+        final String HOME_SCREEN = "/fxml/StartScreen.fxml";
+        final String GAME_SCREEN = "/fxml/GameView.fxml";
 
-        stage.setFullScreen(true);
+        int width = (int) Screen.getPrimary().getBounds().getWidth();
+        int height = (int) Screen.getPrimary().getBounds().getHeight();
+
+        home = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(HOME_SCREEN))), width, height);
+        game = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(GAME_SCREEN))), width, height);
+
+        stage = stageIn;
+        stage.setResizable(false);
+        stage.setMaximized(true);
         stage.setTitle("SET");
         stage.setScene(home);
 
