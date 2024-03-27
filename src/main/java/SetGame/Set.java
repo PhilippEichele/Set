@@ -14,8 +14,8 @@ public class Set{
     static Deck deck;
     static Scanner s;
     public static void main(String[] args){
-        GUI.startGame(args);
-        gameloop();
+        GUI.initiate(args);
+        //gameloop();
     }
 
     public static void gameloop(){

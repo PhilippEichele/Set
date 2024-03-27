@@ -11,21 +11,33 @@ import java.util.Map;
 
 public class GUI extends Application {
 
+    private FXMLLoader fxmlLoader = new FXMLLoader();
     private final String HOME_SCREEN = "/fxml/StartScreen.fxml";
     private final String GAME_SCREEN = "/fxml/GameView.fxml";
-    //private  Map<SceneName, FxmlInfo> scenes = new HashMap<>();
 
-    public static void startGame(String[] args){
+    private static Scene home;
+    private static Scene game;
+
+    private static Stage stage;
+
+    public static void initiate(String[] args){
         launch(args);
     }
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Set.class.getResource("/fxml/GameView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setMaximized(true);
+    public static void startGame(){
+        stage.setScene(game);
+        stage.setFullScreen(true);
+    }
+
+    @Override
+    public void start(Stage stageIn) throws Exception {
+        stage = stageIn;
+        home = new Scene(fxmlLoader.load(Set.class.getResource(HOME_SCREEN)));
+        game = new Scene(fxmlLoader.load(Set.class.getResource(GAME_SCREEN)));
+
+        stage.setFullScreen(true);
         stage.setTitle("SET");
-        stage.setScene(scene);
+        stage.setScene(home);
 
         stage.show();
     }
