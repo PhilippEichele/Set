@@ -1,9 +1,8 @@
-package SetGame;
+package GUI;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
-public class SetController {
+public class MainController {
     @FXML
     protected void startGame(){
         System.out.println("button pressed");

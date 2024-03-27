@@ -7,4 +7,8 @@ module com.example.set {
 
     opens SetGame to javafx.fxml;
     exports SetGame;
+    exports Attributes;
+    opens Attributes to javafx.fxml;
+    exports GUI;
+    opens GUI to javafx.fxml;
 }

@@ -5,9 +5,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="340.0" prefWidth="390.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SetGame.SetController">
+<VBox alignment="CENTER" prefHeight="340.0" prefWidth="390.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
     <stylesheets>
-        <URL value="@style.css" />
+        <URL value="@../css/style.css" />
     </stylesheets>
 
     <padding>

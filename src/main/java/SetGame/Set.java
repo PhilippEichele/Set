@@ -1,5 +1,11 @@
 package SetGame;
 
+import Attributes.Colour;
+import Attributes.Number;
+import Attributes.Shading;
+import Attributes.Shape;
+import GUI.GUI;
+
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -8,16 +14,16 @@ public class Set{
     static Deck deck;
     static Scanner s;
     public static void main(String[] args){
+        GUI.startGame(args);
+        gameloop();
+    }
+
+    public static void gameloop(){
         deck = new Deck();
-        GUI gui = new GUI();
         s = new Scanner(System.in);
         deck.shuffle();
         cardsOnTable = deck.draw(12);
 
-        gui.startGame(args);
-        //gameloop();
-    }
-    public static void gameloop(){
         while(deck.decksize() > 0 || cardsOnTable.size() > 0){
             System.out.println("Cards left in deck: "+deck.decksize());
             while(!setOnTable()){
@@ -43,8 +49,11 @@ public class Set{
                 }else{
                     System.out.println("no set");
                 }
-            }catch (InputMismatchException IME){
+            }catch(InputMismatchException IME){
                 System.out.println("inputs must be Integers\n");
+                s.next();
+            }catch(IndexOutOfBoundsException IOOBE){
+                System.out.println("number not on table\n");
                 s.next();
             }
 

@@ -1,5 +1,10 @@
 package SetGame;
 
+import Attributes.Colour;
+import Attributes.Number;
+import Attributes.Shading;
+import Attributes.Shape;
+
 public record Card(Shading shading, Shape shape, Number number, Colour colour) {
 
     public Shading getShading() {

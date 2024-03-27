@@ -1,5 +1,10 @@
 package SetGame;
 
+import Attributes.Colour;
+import Attributes.Number;
+import Attributes.Shading;
+import Attributes.Shape;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
