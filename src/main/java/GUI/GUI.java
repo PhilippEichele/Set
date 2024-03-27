@@ -6,18 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Objects;
 
 public class GUI extends Application {
-
-    private FXMLLoader fxmlLoader = new FXMLLoader();
-    private final String HOME_SCREEN = "/fxml/StartScreen.fxml";
-    private final String GAME_SCREEN = "/fxml/GameView.fxml";
-
     private static Scene home;
     private static Scene game;
-
     private static Stage stage;
 
     public static void initiate(String[] args){
@@ -32,8 +25,10 @@ public class GUI extends Application {
     @Override
     public void start(Stage stageIn) throws Exception {
         stage = stageIn;
-        home = new Scene(fxmlLoader.load(Set.class.getResource(HOME_SCREEN)));
-        game = new Scene(fxmlLoader.load(Set.class.getResource(GAME_SCREEN)));
+        String HOME_SCREEN = "/fxml/StartScreen.fxml";
+        home = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(HOME_SCREEN))));
+        String GAME_SCREEN = "/fxml/GameView.fxml";
+        game = new Scene(FXMLLoader.load(Objects.requireNonNull(Set.class.getResource(GAME_SCREEN))));
 
         stage.setFullScreen(true);
         stage.setTitle("SET");
