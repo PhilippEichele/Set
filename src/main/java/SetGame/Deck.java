@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Card> deck = new ArrayList<>();
+    public static ArrayList<Card> deck = new ArrayList<>();
 
     public Deck(){
         for(Shape shape : Shape.values()){
@@ -21,10 +21,6 @@ public class Deck {
                 }
             }
         }
-    }
-
-    public ArrayList<Card> getDeck(){
-        return deck;
     }
 
     public void shuffle(){

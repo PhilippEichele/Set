@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Set{
+    static ArrayList<Integer> inputs = new ArrayList<>();
     static ArrayList<Card> cardsOnTable;
     static Deck deck;
     static Scanner s;
@@ -18,13 +19,39 @@ public class Set{
         //gameloop();
     }
 
+    public static void addInput(int inpt){
+        System.out.println(inpt);
+        inputs.add(inpt);
+    }
+
+    public static String submitInputs(){
+        if (inputs.size() != 3){
+            return "Please select exactly 3 cards";
+        }
+
+        Card[] choices = new Card[]{cardsOnTable.get(inputs.get(0)), cardsOnTable.get(inputs.get(1)), cardsOnTable.get(inputs.get(2))};
+
+        if(checkForSet(choices[0],choices[1],choices[2])){
+            cardsOnTable.removeAll(Arrays.asList(choices));
+            return "SET";
+        }
+        return "no set";
+    }
+
+    public static void initiateGame(){
+        deck = new Deck();
+        s = new Scanner(System.in);
+        deck.shuffle();
+        cardsOnTable = deck.draw(12);
+    }
+
     public static void gameloop(){
         deck = new Deck();
         s = new Scanner(System.in);
         deck.shuffle();
         cardsOnTable = deck.draw(12);
 
-        while(deck.decksize() > 0 || cardsOnTable.size() > 0){
+        while(deck.decksize() > 0 || !cardsOnTable.isEmpty()){
             System.out.println("Cards left in deck: "+deck.decksize());
             while(!setOnTable()){
                 if (deck.decksize() == 0){
@@ -44,16 +71,17 @@ public class Set{
                 Card[] choices = new Card[]{cardsOnTable.get(s.nextInt()), cardsOnTable.get(s.nextInt()), cardsOnTable.get(s.nextInt())};
 
                 if(checkForSet(choices[0],choices[1],choices[2])){
-                    System.out.println("SET");
                     cardsOnTable.removeAll(Arrays.asList(choices));
+                    System.out.println("SET!");
                 }else{
                     System.out.println("no set");
                 }
+
             }catch(InputMismatchException IME){
-                System.out.println("inputs must be Integers\n");
+                System.out.println("only input integers\n");
                 s.next();
             }catch(IndexOutOfBoundsException IOOBE){
-                System.out.println("number not on table\n");
+                System.out.println("card not on table\n");
                 s.next();
             }
 

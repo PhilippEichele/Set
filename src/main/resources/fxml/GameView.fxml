@@ -4,49 +4,54 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.stage.Screen?>
 
 <VBox alignment="CENTER" prefHeight="340.0" prefWidth="390.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
     <stylesheets>
         <URL value="@../css/style.css" />
     </stylesheets>
-
+    <fx:define>
+        <Screen fx:factory="getPrimary" fx:id="screen"/>
+    </fx:define>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <children>
-      <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints prefHeight="150" />
-          <RowConstraints prefHeight="150" />
-          <RowConstraints prefHeight="150" />
-          <RowConstraints prefHeight="150" />
-          <RowConstraints prefHeight="150" />
-        </rowConstraints>
-         <children>
-            <ToggleButton GridPane.columnIndex="2" />
-            <ToggleButton GridPane.rowIndex="1" />
-            <ToggleButton />
-            <ToggleButton GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ToggleButton GridPane.rowIndex="2" />
-            <ToggleButton GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ToggleButton GridPane.columnIndex="1" />
-            <ToggleButton GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ToggleButton GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ToggleButton GridPane.rowIndex="3" />
-            <ToggleButton GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ToggleButton GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ToggleButton GridPane.rowIndex="4" />
-            <ToggleButton GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ToggleButton GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button maxHeight="Infinity" maxWidth="Infinity" text="Submit" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="3" />
-         </children>
-      </GridPane>
-   </children>
+    <children>
+       <GridPane prefHeight="${screen.visualBounds.height}" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity">
+          <columnConstraints>
+              <ColumnConstraints halignment="CENTER" percentWidth="20" />
+              <ColumnConstraints halignment="CENTER" percentWidth="20" />
+              <ColumnConstraints halignment="CENTER" percentWidth="20" />
+              <ColumnConstraints halignment="CENTER" percentWidth="20" />
+              <ColumnConstraints halignment="CENTER" percentWidth="20" />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints valignment="CENTER" percentHeight="19"/>
+              <RowConstraints valignment="CENTER" percentHeight="19"/>
+              <RowConstraints valignment="CENTER" percentHeight="19"/>
+              <RowConstraints valignment="CENTER" percentHeight="19"/>
+              <RowConstraints valignment="CENTER" percentHeight="19"/>
+          </rowConstraints>
+          <children>
+              <ToggleButton fx:id="b0" onAction="#b0Pressed" GridPane.columnIndex="1" />
+              <ToggleButton fx:id="b1" onAction="#b1Pressed" GridPane.columnIndex="2" />
+              <ToggleButton fx:id="b2" onAction="#b2Pressed" prefHeight="20.0" prefWidth="70.0" GridPane.columnIndex="3" />
+              <ToggleButton fx:id="b3" onAction="#b3Pressed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <ToggleButton fx:id="b4" onAction="#b4Pressed" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+              <ToggleButton fx:id="b5" onAction="#b5Pressed" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+              <ToggleButton fx:id="b6" onAction="#b6Pressed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+              <ToggleButton fx:id="b7" onAction="#b7Pressed" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+              <ToggleButton fx:id="b8" onAction="#b8Pressed" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+              <ToggleButton fx:id="b9" onAction="#b9Pressed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <ToggleButton fx:id="b10" onAction="#b10Pressed" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+              <ToggleButton fx:id="b11" onAction="#b11Pressed" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+              <ToggleButton fx:id="b12" onAction="#b12Pressed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <ToggleButton fx:id="b13" onAction="#b13Pressed" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+              <ToggleButton fx:id="b14" onAction="#b14Pressed" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+              <Button onAction="#submit" text="Submit" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+              <Button onAction="#reset" text="Reset" GridPane.rowIndex="2" />
+              <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" text="Label" wrapText="true" GridPane.columnIndex="4" />
+          </children>
+       </GridPane>
+    </children>
 </VBox>
