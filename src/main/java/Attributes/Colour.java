@@ -1,5 +1,5 @@
 package Attributes;
 
 public enum Colour {
-    RED, GREEN, BLUE
+    RED, GREEN, PURPLE
 }

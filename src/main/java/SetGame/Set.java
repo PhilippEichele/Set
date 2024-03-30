@@ -10,31 +10,29 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Set{
-    static ArrayList<Integer> inputs = new ArrayList<>();
-    static ArrayList<Card> cardsOnTable;
+    public static ArrayList<Card> inputs = new ArrayList<>();
+    public static ArrayList<Card> cardsOnTable;
     static Deck deck;
     static Scanner s;
     public static void main(String[] args){
         GUI.initiate(args);
-        //gameloop();
     }
 
     public static void addInput(int inpt){
-        System.out.println(inpt);
-        inputs.add(inpt);
+        inputs.add(cardsOnTable.get(inpt));
     }
 
     public static String submitInputs(){
         if (inputs.size() != 3){
             return "Please select exactly 3 cards";
         }
-
-        Card[] choices = new Card[]{cardsOnTable.get(inputs.get(0)), cardsOnTable.get(inputs.get(1)), cardsOnTable.get(inputs.get(2))};
-
-        if(checkForSet(choices[0],choices[1],choices[2])){
-            cardsOnTable.removeAll(Arrays.asList(choices));
+        if(checkForSet(inputs.get(0),inputs.get(1),inputs.get(2))){
+            cardsOnTable.removeAll(inputs);
+            inputs.clear();
+            putCardsOnTable();
             return "SET";
         }
+        inputs.clear();
         return "no set";
     }
 
@@ -42,50 +40,9 @@ public class Set{
         deck = new Deck();
         s = new Scanner(System.in);
         deck.shuffle();
+
         cardsOnTable = deck.draw(12);
-    }
-
-    public static void gameloop(){
-        deck = new Deck();
-        s = new Scanner(System.in);
-        deck.shuffle();
-        cardsOnTable = deck.draw(12);
-
-        while(deck.decksize() > 0 || !cardsOnTable.isEmpty()){
-            System.out.println("Cards left in deck: "+deck.decksize());
-            while(!setOnTable()){
-                if (deck.decksize() == 0){
-                    System.out.println("out of deck cards and no set left");
-                    System.exit(0);
-                }
-                cardsOnTable = cardsOnTable.size() < 12 ?
-                        new ArrayList<>(Stream.concat(cardsOnTable.stream(), deck.draw(12 - cardsOnTable.size()).stream()).toList())
-                        : new ArrayList<>(Stream.concat(cardsOnTable.stream(), deck.draw(3).stream()).toList());
-            }
-
-            for(int i = 0;i< cardsOnTable.size();i++){
-                System.out.print(i+": ");
-                printCard(cardsOnTable.get(i));
-            }
-            try{
-                Card[] choices = new Card[]{cardsOnTable.get(s.nextInt()), cardsOnTable.get(s.nextInt()), cardsOnTable.get(s.nextInt())};
-
-                if(checkForSet(choices[0],choices[1],choices[2])){
-                    cardsOnTable.removeAll(Arrays.asList(choices));
-                    System.out.println("SET!");
-                }else{
-                    System.out.println("no set");
-                }
-
-            }catch(InputMismatchException IME){
-                System.out.println("only input integers\n");
-                s.next();
-            }catch(IndexOutOfBoundsException IOOBE){
-                System.out.println("card not on table\n");
-                s.next();
-            }
-
-        }
+        putCardsOnTable();
     }
 
     public static boolean checkForSet(Card c1, Card c2, Card c3){
@@ -108,6 +65,17 @@ public class Set{
         return true;
     }
 
+    public static void putCardsOnTable(){
+        while(!setOnTable()){
+            if(Deck.deck.isEmpty()){
+                GUI.endGame();
+            }
+            cardsOnTable = cardsOnTable.size() < 12 ?
+                    new ArrayList<>(Stream.concat(cardsOnTable.stream(), deck.draw(12 - cardsOnTable.size()).stream()).toList())
+                    : new ArrayList<>(Stream.concat(cardsOnTable.stream(), deck.draw(3).stream()).toList());
+        }
+    }
+
     public static boolean setOnTable(){
         for (int i=0; i<cardsOnTable.size();i++){
             for(int j=1; j<cardsOnTable.size();j++){
@@ -119,7 +87,7 @@ public class Set{
                         continue;
                     }
                     if (checkForSet(cardsOnTable.get(i),cardsOnTable.get(j),cardsOnTable.get(k))){
-                        System.out.println(i+" "+j+" "+k);
+                        //System.out.println(i+" "+j+" "+k);
                         //^^^^ only for debugging
                         return true;
                     }
@@ -130,6 +98,6 @@ public class Set{
     }
 
     public static void printCard(Card c){
-        System.out.println(c.getShading()+" "+c.getShape()+" "+c.getColour()+" "+c.getNumber());
+        System.out.println(c.getShading()+" "+c.getShape()+" "+c.getColour()+" "+c.getNumber()+"\n"+c.getImg()+"\n");
     }
 }

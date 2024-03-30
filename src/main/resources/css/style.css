@@ -1,9 +1,10 @@
-.toggle-button{
-    -fx-max-height: "Infinity";
-    -fx-max-width: "Infinity";
-}
-
 .button{
     -fx-max-width: "Infinity";
     -fx-max-height: "Infinity";
+}
+
+.label{
+    -fx-text-alignment: center;
+    -fx-content-display: center;
+    -fx-wrap-text: true;
 }

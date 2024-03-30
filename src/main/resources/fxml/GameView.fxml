@@ -33,24 +33,25 @@
               <RowConstraints valignment="CENTER" percentHeight="19"/>
           </rowConstraints>
           <children>
-              <ToggleButton fx:id="b0" onAction="#b0Pressed" GridPane.columnIndex="1" />
-              <ToggleButton fx:id="b1" onAction="#b1Pressed" GridPane.columnIndex="2" />
-              <ToggleButton fx:id="b2" onAction="#b2Pressed" prefHeight="20.0" prefWidth="70.0" GridPane.columnIndex="3" />
-              <ToggleButton fx:id="b3" onAction="#b3Pressed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-              <ToggleButton fx:id="b4" onAction="#b4Pressed" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-              <ToggleButton fx:id="b5" onAction="#b5Pressed" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-              <ToggleButton fx:id="b6" onAction="#b6Pressed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-              <ToggleButton fx:id="b7" onAction="#b7Pressed" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-              <ToggleButton fx:id="b8" onAction="#b8Pressed" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-              <ToggleButton fx:id="b9" onAction="#b9Pressed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-              <ToggleButton fx:id="b10" onAction="#b10Pressed" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-              <ToggleButton fx:id="b11" onAction="#b11Pressed" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-              <ToggleButton fx:id="b12" onAction="#b12Pressed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-              <ToggleButton fx:id="b13" onAction="#b13Pressed" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-              <ToggleButton fx:id="b14" onAction="#b14Pressed" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+              <Button fx:id="b0" onAction="#b0Pressed" GridPane.columnIndex="1" />
+              <Button fx:id="b1" onAction="#b1Pressed" GridPane.columnIndex="2" />
+              <Button fx:id="b2" onAction="#b2Pressed" prefHeight="20.0" prefWidth="70.0" GridPane.columnIndex="3" />
+              <Button fx:id="b3" onAction="#b3Pressed" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <Button fx:id="b4" onAction="#b4Pressed" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+              <Button fx:id="b5" onAction="#b5Pressed" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+              <Button fx:id="b6" onAction="#b6Pressed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+              <Button fx:id="b7" onAction="#b7Pressed" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+              <Button fx:id="b8" onAction="#b8Pressed" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+              <Button fx:id="b9" onAction="#b9Pressed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <Button fx:id="b10" onAction="#b10Pressed" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+              <Button fx:id="b11" onAction="#b11Pressed" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+              <Button fx:id="b12" onAction="#b12Pressed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <Button fx:id="b13" onAction="#b13Pressed" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+              <Button fx:id="b14" onAction="#b14Pressed" GridPane.columnIndex="3" GridPane.rowIndex="4" />
               <Button onAction="#submit" text="Submit" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-              <Button onAction="#reset" text="Reset" GridPane.rowIndex="2" />
-              <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" text="Label" wrapText="true" GridPane.columnIndex="4" />
+              <Button onAction="#reset" text="Reset inputs" GridPane.rowIndex="2" />
+              <Label fx:id="MainLabel"  text="Select a Set" GridPane.columnIndex="4" />
+              <Label fx:id="DeckLabel" />
           </children>
        </GridPane>
     </children>
