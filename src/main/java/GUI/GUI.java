@@ -9,8 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -79,9 +77,7 @@ public class GUI extends Application {
                 updateButton(buttons.get(i), true, false);
                 File file = new File("src\\main\\resources\\images\\"+Set.cardsOnTable.get(i).getImg());
                 setBtnBackground(buttons.get(i), file.toURI().toString());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            }catch (Exception ignored){}
         }
         for (int i = 14; i>Set.cardsOnTable.size()-1;i--){
             updateButton(buttons.get(i), false, true);
@@ -118,12 +114,14 @@ public class GUI extends Application {
             Set.inputs.remove(currCard);
             buttons.get(button).setOpacity(1);
         }else{
-            buttons.get(button).setOpacity(0.75);
+            buttons.get(button).setOpacity(0.65);
             Set.addInput(button);
         }
     }
 
-    public static void setBtnBackground(Button tb, String img){
-        tb.setBackground(new Background(new BackgroundImage(new Image(img), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0.75, 0.75, true, true, false, false))));
+    public static void setBtnBackground(Button b, String img){
+        String background = "-fx-background-image: url('"+img+"')";
+        b.setStyle(background);
+        //b.setBackground(new Background(new BackgroundImage(new Image(img), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0.75, 0.75, true, true, false, false))));
     }
 }

@@ -13,7 +13,6 @@ public class Set{
     public static ArrayList<Card> inputs = new ArrayList<>();
     public static ArrayList<Card> cardsOnTable;
     static Deck deck;
-    static Scanner s;
     public static void main(String[] args){
         GUI.initiate(args);
     }
@@ -38,7 +37,6 @@ public class Set{
 
     public static void initiateGame(){
         deck = new Deck();
-        s = new Scanner(System.in);
         deck.shuffle();
 
         cardsOnTable = deck.draw(12);
@@ -95,9 +93,5 @@ public class Set{
             }
         }
         return false;
-    }
-
-    public static void printCard(Card c){
-        System.out.println(c.getShading()+" "+c.getShape()+" "+c.getColour()+" "+c.getNumber()+"\n"+c.getImg()+"\n");
     }
 }
