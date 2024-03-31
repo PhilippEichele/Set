@@ -13,6 +13,8 @@ public class Set{
     public static ArrayList<Card> inputs = new ArrayList<>();
     public static ArrayList<Card> cardsOnTable;
     static Deck deck;
+    public static int setsFound = 0;
+    public static double startTime = System.currentTimeMillis();
     public static void main(String[] args){
         GUI.initiate(args);
     }
@@ -29,6 +31,7 @@ public class Set{
             cardsOnTable.removeAll(inputs);
             inputs.clear();
             putCardsOnTable();
+            setsFound++;
             return "SET";
         }
         inputs.clear();
@@ -86,7 +89,7 @@ public class Set{
                         continue;
                     }
                     if (checkForSet(cardsOnTable.get(i),cardsOnTable.get(j),cardsOnTable.get(k))){
-                        //System.out.println(i+" "+j+" "+k);
+                        System.out.println(i+" "+j+" "+k);
                         //^^^^ only for debugging
                         return true;
                     }

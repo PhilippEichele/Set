@@ -68,6 +68,8 @@ public class GUI extends Application {
 
     public static void endGame(){
         stage.setScene(end);
+        labels.add((Label) end.lookup("#gameOver"));
+        labels.get(2).setText("Game over :D\nThere are no sets left\nYou found "+Set.setsFound+" sets in "+(String.format("%.2f",(System.currentTimeMillis() - Set.startTime)/60000.0))+" Minutes!");
     }
 
     public static void updateTable(){
@@ -114,7 +116,7 @@ public class GUI extends Application {
             Set.inputs.remove(currCard);
             buttons.get(button).setOpacity(1);
         }else{
-            buttons.get(button).setOpacity(0.65);
+            buttons.get(button).setOpacity(0.25);
             Set.addInput(button);
         }
     }
@@ -122,6 +124,5 @@ public class GUI extends Application {
     public static void setBtnBackground(Button b, String img){
         String background = "-fx-background-image: url('"+img+"')";
         b.setStyle(background);
-        //b.setBackground(new Background(new BackgroundImage(new Image(img), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0.75, 0.75, true, true, false, false))));
     }
 }

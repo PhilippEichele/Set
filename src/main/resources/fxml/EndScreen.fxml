@@ -15,7 +15,7 @@
    <children>
       <AnchorPane prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
          <children>
-            <Label fx:id="gameOver" text="${'Game over :D\n There are no sets left'}" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}" />
+            <Label fx:id="gameOver" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}" />
          </children>
       </AnchorPane>
    </children>
