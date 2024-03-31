@@ -34,3 +34,10 @@
     -fx-alignment: center;
     -fx-background-image: url('../images/DeckBackside.jpg');
 }
+
+#gameOver{
+    -fx-alignment: center;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-content-display: center;
+}

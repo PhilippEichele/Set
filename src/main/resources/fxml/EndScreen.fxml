@@ -2,13 +2,20 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.stage.Screen?>
+<?import java.net.URL?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
+   <stylesheets>
+      <URL value="@../css/style.css" />
+   </stylesheets>
+   <fx:define>
+      <Screen fx:factory="getPrimary" fx:id="screen"/>
+   </fx:define>
    <children>
-      <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="200.0" text="Game over :D" />
+            <Label fx:id="gameOver" text="${'Game over :D\n There are no sets left'}" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}" />
          </children>
       </AnchorPane>
    </children>

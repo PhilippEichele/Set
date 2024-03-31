@@ -67,6 +67,7 @@ public class Set{
         while(!setOnTable()){
             if(Deck.deck.isEmpty()){
                 GUI.endGame();
+                break;
             }
             cardsOnTable = cardsOnTable.size() < 12 ?
                     new ArrayList<>(Stream.concat(cardsOnTable.stream(), deck.draw(12 - cardsOnTable.size()).stream()).toList())
