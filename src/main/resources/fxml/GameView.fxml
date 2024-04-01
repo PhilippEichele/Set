@@ -26,11 +26,11 @@
               <ColumnConstraints halignment="CENTER" percentWidth="20" />
           </columnConstraints>
           <rowConstraints>
-              <RowConstraints valignment="CENTER" percentHeight="19"/>
-              <RowConstraints valignment="CENTER" percentHeight="19"/>
-              <RowConstraints valignment="CENTER" percentHeight="19"/>
-              <RowConstraints valignment="CENTER" percentHeight="19"/>
-              <RowConstraints valignment="CENTER" percentHeight="19"/>
+              <RowConstraints valignment="CENTER" percentHeight="19" />
+              <RowConstraints valignment="CENTER" percentHeight="19" />
+              <RowConstraints valignment="CENTER" percentHeight="19" />
+              <RowConstraints valignment="CENTER" percentHeight="19" />
+              <RowConstraints valignment="CENTER" percentHeight="19" />
           </rowConstraints>
           <children>
               <Button fx:id="b0" onAction="#b0Pressed" GridPane.columnIndex="1" />
@@ -50,7 +50,8 @@
               <Button fx:id="b14" onAction="#b14Pressed" GridPane.columnIndex="3" GridPane.rowIndex="4" />
               <Button onAction="#submit" text="Submit" GridPane.columnIndex="4" GridPane.rowIndex="2" />
               <Button onAction="#reset" text="Reset inputs" GridPane.rowIndex="2" />
-              <Label fx:id="MainLabel"  text="Select a Set" GridPane.columnIndex="4" />
+              <Button onAction="#home" text="Main Menu" GridPane.rowIndex="4" GridPane.columnIndex="4"/>
+              <Label fx:id="MainLabel"  text="Select a Set" GridPane.columnIndex="4" maxWidth="-Infinity"/>
               <Label fx:id="DeckLabel" />
           </children>
        </GridPane>

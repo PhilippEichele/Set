@@ -3,7 +3,12 @@ package GUI;
 import SetGame.Set;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 
 public class MainController {
     public Label MainLabel;
@@ -16,6 +21,11 @@ public class MainController {
     }
 
     @FXML
+    protected void home(){
+        GUI.returnToHome();
+    }
+
+    @FXML
     protected void submit(){
         GUI.submitInputs();
     }
@@ -23,6 +33,30 @@ public class MainController {
     @FXML
     protected void reset(){
         GUI.resetAllButtons();
+    }
+
+    @FXML
+    protected void quitGame(){
+        System.exit(0);
+    }
+
+    @FXML
+    protected void getRules(){
+
+        try{
+            if (Desktop.isDesktopSupported()){
+                //open rules on windows
+                Desktop.getDesktop().browse(new File("src\\main\\resources\\SET INSTRUCTIONS.pdf").toURI());
+            }else{
+                //open rules on Mac (I could not test this myself sadly, so I am not 100% sure if it works)
+                Runtime runtime = Runtime.getRuntime();
+                String[] args = {"osascript", "-e", "open location \"" + new File("src\\main\\resources\\SET INSTRUCTIONS.pdf").toURI() + "\""};
+                Process process = runtime.exec(args);
+            }
+        }catch (IOException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Operating system not supported for this action");
+            alert.showAndWait();
+        }
     }
 
     @FXML

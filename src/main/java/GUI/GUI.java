@@ -68,18 +68,22 @@ public class GUI extends Application {
 
     public static void endGame(){
         stage.setScene(end);
-        labels.add((Label) end.lookup("#gameOver"));
-        labels.get(2).setText("Game over :D\nThere are no sets left\nYou found "+Set.setsFound+" sets in "+(String.format("%.2f",(System.currentTimeMillis() - Set.startTime)/60000.0))+" Minutes!");
+        labels.add((Label) end.lookup("#GameOver"));
+        String timeToClear = String.format("%.2f",(System.currentTimeMillis() - Set.startTime)/60000.0);
+        timeToClear = timeToClear.split(",")[0]+","+Double.toString((60*(Double.parseDouble(timeToClear.split(",")[1])/100.0))).split("\\.")[0];
+        labels.get(2).setText("Game over :D\nThere are no sets left\nYou found "+Set.setsFound+" sets in "+timeToClear+" Minutes!");
     }
 
-    public static void updateTable(){
+    public static void returnToHome(){
+        stage.setScene(home);
+    }
+
+    public static void updateTable() {
         labels.get(0).setText(Integer.toString(Deck.deck.size()));
         for (int i = 0; i< Set.cardsOnTable.size(); i++){
-            try {
-                updateButton(buttons.get(i), true, false);
-                File file = new File("src\\main\\resources\\images\\"+Set.cardsOnTable.get(i).getImg());
-                setBtnBackground(buttons.get(i), file.toURI().toString());
-            }catch (Exception ignored){}
+            updateButton(buttons.get(i), true, false);
+            File file = new File("src\\main\\resources\\images\\"+Set.cardsOnTable.get(i).getImg());
+            setBtnBackground(buttons.get(i), file.toURI().toString());
         }
         for (int i = 14; i>Set.cardsOnTable.size()-1;i--){
             updateButton(buttons.get(i), false, true);

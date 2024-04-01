@@ -5,14 +5,28 @@
 
 <?import java.net.URL?>
 <?import javafx.stage.Screen?>
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
     <stylesheets>
         <URL value="@../css/style.css" />
     </stylesheets>
     <fx:define>
         <Screen fx:factory="getPrimary" fx:id="screen"/>
     </fx:define>
-    <children>
-      <Button onAction="#startGame" text="Click anywhere to start the game" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}"/>
-   </children>
-</AnchorPane>
+    <GridPane prefHeight="${screen.visualBounds.height}" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" percentWidth="33" />
+            <ColumnConstraints halignment="CENTER" percentWidth="34" />
+            <ColumnConstraints halignment="CENTER" percentWidth="33" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints valignment="CENTER" percentHeight="33"/>
+            <RowConstraints valignment="CENTER" percentHeight="34"/>
+            <RowConstraints valignment="CENTER" percentHeight="33"/>
+        </rowConstraints>
+        <children>
+            <Button onAction="#startGame" text="Regular Singleplayer" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Button onAction="#quitGame" text="Exit to desktop" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Button onAction="#getRules" text="Rules" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        </children>
+    </GridPane>
+</VBox>

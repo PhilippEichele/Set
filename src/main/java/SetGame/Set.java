@@ -13,8 +13,8 @@ public class Set{
     public static ArrayList<Card> inputs = new ArrayList<>();
     public static ArrayList<Card> cardsOnTable;
     static Deck deck;
-    public static int setsFound = 0;
-    public static double startTime = System.currentTimeMillis();
+    public static int setsFound;
+    public static double startTime;
     public static void main(String[] args){
         GUI.initiate(args);
     }
@@ -41,6 +41,8 @@ public class Set{
     public static void initiateGame(){
         deck = new Deck();
         deck.shuffle();
+        startTime = System.currentTimeMillis();
+        setsFound = 0;
 
         cardsOnTable = deck.draw(12);
         putCardsOnTable();

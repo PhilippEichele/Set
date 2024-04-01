@@ -1,7 +1,8 @@
 .button{
     -fx-text-fill: white;
-    -fx-max-width: "Infinity";
+    -fx-font-size: 30;
     -fx-max-height: "Infinity";
+    -fx-max-width: "Infinity";
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 75% 75%;
@@ -9,35 +10,35 @@
 }
 
 .label{
+    -fx-text-fill: white;
     -fx-text-alignment: center;
-    -fx-content-display: center;
     -fx-wrap-text: true;
 }
 
+.button:hover{
+    -fx-font-size: 32;
+}
+
 .root{
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
     -fx-background-color: #3a3a3c;
 }
 
-.label{
-    -fx-text-fill: white;
-}
-
 #DeckLabel{
+    -fx-max-height: "Infinity";
+    -fx-max-width: "Infinity";
     -fx-text-fill: black;
     -fx-font-size: 30;
     -fx-font-weight: bold;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 60% 100%;
-    -fx-max-width: "Infinity";
-    -fx-max-height: "infinity";
     -fx-alignment: center;
     -fx-background-image: url('../images/DeckBackside.jpg');
 }
 
-#gameOver{
-    -fx-alignment: center;
-    -fx-font-size: 30;
-    -fx-font-weight: bold;
-    -fx-content-display: center;
+#MainLabel{
+    -fx-font-weight: normal;
+    -fx-font-size: 20;
 }

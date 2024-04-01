@@ -4,6 +4,7 @@ module com.example.set {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens SetGame to javafx.fxml;
     exports SetGame;
