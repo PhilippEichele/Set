@@ -37,8 +37,8 @@ public class GUI extends Application {
         final String GAME_SCREEN = "/fxml/GameView.fxml";
         final String END_SCREEN = "/fxml/EndScreen.fxml";
 
-        width = (int) Screen.getPrimary().getBounds().getWidth();
         height = (int) Screen.getPrimary().getBounds().getHeight();
+        width = (int) (((double)height/9)*16);
 
         home = new Scene(FXMLLoader.load(Objects.requireNonNull(GUI.class.getResource(HOME_SCREEN))), width, height);
         game = new Scene(FXMLLoader.load(Objects.requireNonNull(GUI.class.getResource(GAME_SCREEN))), width, height);
@@ -56,11 +56,11 @@ public class GUI extends Application {
     public static void startGame() {
         stage.setScene(game);
 
-        labels.add((Label) game.lookup("#DeckLabel"));
-        labels.add((Label) game.lookup("#MainLabel"));
+        addtoLabel((Label) game.lookup("#DeckLabel"));
+        addtoLabel((Label) game.lookup("#MainLabel"));
 
         for (int i = 0; i<15; i++){
-            buttons.add((Button) game.lookup("#b" + i));
+            addToButton((Button) game.lookup("#b" + i));
         }
 
         updateTable();
@@ -68,7 +68,7 @@ public class GUI extends Application {
 
     public static void endGame(){
         stage.setScene(end);
-        labels.add((Label) end.lookup("#GameOver"));
+        addtoLabel((Label) end.lookup("#GameOver"));
         String timeToClear = String.format("%.2f",(System.currentTimeMillis() - Set.startTime)/60000.0);
         timeToClear = timeToClear.split(",")[0]+","+Double.toString((60*(Double.parseDouble(timeToClear.split(",")[1])/100.0))).split("\\.")[0];
         labels.get(2).setText("Game over :D\nThere are no sets left\nYou found "+Set.setsFound+" sets in "+timeToClear+" Minutes!");
@@ -128,5 +128,17 @@ public class GUI extends Application {
     public static void setBtnBackground(Button b, String img){
         String background = "-fx-background-image: url('"+img+"')";
         b.setStyle(background);
+    }
+
+    public static void addtoLabel(Label l){
+        if (!labels.contains(l)){
+            labels.add(l);
+        }
+    }
+
+    public static void addToButton(Button b){
+        if(!buttons.contains(b)){
+            buttons.add(b);
+        }
     }
 }

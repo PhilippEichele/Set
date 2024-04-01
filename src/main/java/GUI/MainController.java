@@ -41,6 +41,11 @@ public class MainController {
     }
 
     @FXML
+    protected void startTimedGame(){
+
+    }
+
+    @FXML
     protected void getRules(){
 
         try{

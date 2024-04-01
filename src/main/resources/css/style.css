@@ -10,17 +10,26 @@
 }
 
 .label{
+    -fx-font-size: 30;
     -fx-text-fill: white;
     -fx-text-alignment: center;
     -fx-wrap-text: true;
 }
 
 .button:hover{
-    -fx-font-size: 32;
+    -fx-font-size: 33;
+    -fx-background-size: 77% 77%;
+}
+
+.subButton:hover{
+    -fx-font-size: 27;
+}
+
+.subButton{
+    -fx-font-size: 25;
 }
 
 .root{
-    -fx-font-size: 30;
     -fx-font-weight: bold;
     -fx-background-color: #3a3a3c;
 }
@@ -41,4 +50,13 @@
 #MainLabel{
     -fx-font-weight: normal;
     -fx-font-size: 20;
+}
+
+#setLogo{
+    -fx-max-height: "Infinity";
+    -fx-max-width: "Infinity";
+    -fx-background-image: url('../images/SetHomeScreen.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 80% 100%;
 }

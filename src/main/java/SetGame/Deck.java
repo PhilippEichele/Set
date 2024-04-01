@@ -12,6 +12,7 @@ public class Deck {
     public static ArrayList<Card> deck = new ArrayList<>();
 
     public Deck(){
+        deck.clear();
         for(Shape shape : Shape.values()){
             for(Shading shading : Shading.values()){
                 for(Number number : Number.values()){
