@@ -38,7 +38,7 @@ public class GUI extends Application {
         final String END_SCREEN = "/fxml/EndScreen.fxml";
 
         height = (int) Screen.getPrimary().getBounds().getHeight();
-        width = (int) (((double)height/9)*16);
+        width = Math.min((int) (((double) height / 9) * 16), (int) Screen.getPrimary().getBounds().getWidth());
 
         home = new Scene(FXMLLoader.load(Objects.requireNonNull(GUI.class.getResource(HOME_SCREEN))), width, height);
         game = new Scene(FXMLLoader.load(Objects.requireNonNull(GUI.class.getResource(GAME_SCREEN))), width, height);
