@@ -1,23 +1,35 @@
 package GUI;
 
-import SetGame.Set;
+import SetGame.SetLogic;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
-import java.awt.Desktop;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class MainController {
-    public Label MainLabel;
-    public Label DeckLabel;
+/*
+*    general input handling
+ */
+
+public class MainController implements EventHandler<KeyEvent> {
+
+    public TextField playerField;
+    public TextField keyField;
 
     @FXML
-    protected void startGame(){
-        Set.initiateGame();
+    protected void startSinglePlayerGame(){
+        SetLogic.initiateSinglePlayerGame();
         GUI.startGame();
+    }
+
+    @FXML
+    protected void multiplayerSelector(){
+        GUI.multiplayerSelector();
     }
 
     @FXML
@@ -41,12 +53,17 @@ public class MainController {
     }
 
     @FXML
-    protected void startTimedGame(){
-
+    protected void addPlayer(){
+        SetLogic.addPlayer(playerField.getText(),keyField.getText());
     }
 
     @FXML
-    protected void getRules(){
+    protected void resetPlayerList(){
+        SetLogic.resetPlayerList();
+    }
+
+    @FXML
+    protected void getRules() throws Exception{
 
         try{
             if (Desktop.isDesktopSupported()){
@@ -123,5 +140,15 @@ public class MainController {
     @FXML
     protected void b14Pressed(){
         GUI.buttonHandler(14);
+    }
+
+    @Override
+    public void handle(KeyEvent event) {
+        System.out.println(event.getCode());
+        System.out.println("hey");
+        if (KeyEvent.KEY_PRESSED.equals(event.getEventType())) {
+            SetLogic.playerTurn();
+            System.out.println(event.getCode());
+        }
     }
 }

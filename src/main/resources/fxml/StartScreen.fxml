@@ -7,7 +7,7 @@
 <?import javafx.stage.Screen?>
 <VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
     <stylesheets>
-        <URL value="@../css/style.css" />
+        <URL value="@../css/style.css"/>
     </stylesheets>
     <fx:define>
         <Screen fx:factory="getPrimary" fx:id="screen"/>
@@ -23,13 +23,10 @@
             <RowConstraints valignment="CENTER" percentHeight="34"/>
             <RowConstraints valignment="CENTER" percentHeight="33"/>
         </rowConstraints>
-        <children>
-            <Label fx:id="setLogo" GridPane.columnIndex="1"/>
-            <Button onAction="#startTimedGame" text="Against the clock" GridPane.rowIndex="1"/>
-            <Button text="Platzhalter" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-            <Button onAction="#startGame" text="Regular Singleplayer" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Button styleClass="subButton" onAction="#quitGame" text="Exit to desktop" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Button styleClass="subButton" onAction="#getRules" text="Rules" GridPane.rowIndex="2" />
-        </children>
+        <Label fx:id="setLogo" GridPane.columnIndex="1"/>
+        <Button onAction="#startSinglePlayerGame" text="SINGLEPLAYER" GridPane.rowIndex="1"/>
+        <Button onAction="#multiplayerSelector" text="MULTIPLAYER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Button styleClass="subButton" onAction="#quitGame" text="Exit to desktop" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Button styleClass="subButton" onAction="#getRules" text="Rules" GridPane.rowIndex="2" />
     </GridPane>
 </VBox>

@@ -6,13 +6,12 @@
 <?import java.net.URL?>
 
 <VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}">
-   <stylesheets>
-      <URL value="@../css/style.css" />
-   </stylesheets>
-   <fx:define>
-      <Screen fx:factory="getPrimary" fx:id="screen"/>
-   </fx:define>
-   <children>
+      <stylesheets>
+         <URL value="@../css/style.css" />
+      </stylesheets>
+      <fx:define>
+         <Screen fx:factory="getPrimary" fx:id="screen"/>
+      </fx:define>
       <GridPane prefHeight="${screen.visualBounds.height}" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity">
          <columnConstraints>
             <ColumnConstraints halignment="CENTER" percentWidth="33" />
@@ -24,10 +23,7 @@
             <RowConstraints valignment="CENTER" percentHeight="34"/>
             <RowConstraints valignment="CENTER" percentHeight="33"/>
          </rowConstraints>
-         <children>
-            <Label fx:id="GameOver" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Button onAction="#home" text="Return to homescreen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         </children>
+         <Label fx:id="GameOver" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+         <Button onAction="#home" text="Return to homescreen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </GridPane>
-   </children>
 </VBox>
